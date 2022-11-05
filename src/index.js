@@ -1,18 +1,20 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
+const mls = require('./mlsApi/queryMLS');
 
 const baseURL = "https://www.kijiji.ca";
 const categoryURL = `${baseURL}/b-for-sale/new-brunswick/c30353001l9005`;
 
 (async function main() {
     //await startKijijiScraper();
-    await startPropertyGuysScraper();
+    //await startPropertyGuysScraper();
     //TODO mls.ca
-    //await startMLSScraper();
+    await startMLSScraper();
 })();
 
 async function startMLSScraper(){
-
+    await mls.startMLSScraper();
+    console.log(`done scraping mls`);
 }
 
 async function startPropertyGuysScraper() {
